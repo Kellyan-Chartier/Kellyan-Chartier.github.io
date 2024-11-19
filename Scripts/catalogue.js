@@ -108,7 +108,7 @@ function initDefilement() {
         e.preventDefault();  // Empêcher le comportement par défaut (sélection de texte, etc.)
 
         const x = e.pageX - catalogueContainer.offsetLeft;  // Nouvelle position de la souris
-        const walk = (x - startX) * 2;  // La vitesse de défilement est multipliée par 3 pour un effet plus rapide
+        const walk = (x - startX) * 1.80;  // La vitesse de défilement est multipliée par 3 pour un effet plus rapide
         catalogueContainer.scrollLeft = scrollLeft - walk;  // Appliquer le défilement
     });
 
