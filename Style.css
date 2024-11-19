@@ -1,0 +1,423 @@
+
+
+@font-face {
+    font-family:'NKFONT';
+    src: url('Fonts/SpotifyMix-BoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#body {
+    background-color: rgb(40, 40, 40);
+}
+
+/* Style de la barre de navigation */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: -5px;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* Centrer la barre de recherche en utilisant une combinaison de flexbox */
+
+/* Pour les écrans de moins de 600px */
+@media (max-width: 600px) {
+    .logo img {
+        height: 30px; /* Réduit la taille du logo */
+    }}
+
+    .logo img {
+        height: 70px; /* Réduit la taille du logo */
+        margin-top: 10%;
+    }
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #555;
+    border-radius: 30px;
+    padding: 15px;
+    height:15px;
+    flex: 10; /* Centre la barre de recherche en lui donnant de l'espace */
+    max-width: 500px;  /* Limite la largeur de la barre de recherche */
+    justify-content: space-between;  /* Espace égal entre l'input et le bouton */
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    background: none;
+    color: white;
+    padding: 0px;
+    outline: none;
+    width: 110%;  /* L'input s'étend pour remplir toute la largeur disponible */
+    box-sizing: border-box; /* Pour ne pas que le padding dépasse la taille du conteneur */
+    height: 100%;  /* S'assure que l'input prend toute la hauteur de son conteneur */
+    line-height: 30px; /* Centre verticalement le texte dans l'input */
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #ddd;
+    font-size: 15px;
+    font-family:NKFONT;
+    width: 110%;  /* L'input s'étend pour remplir toute la largeur disponible */
+    box-sizing: border-box; /* Pour ne pas que le padding dépasse la taille du conteneur */
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+}
+
+/* Place les liens et le bouton de connexion à droite */
+.nav-links,
+.login-btn {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+
+}
+
+.nav-links img{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-family:NKFONT;
+    padding-top: 5px;
+    font-size: 125%;
+    height: 30px;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+.login-btn button {
+    padding: 10px 7px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family:NKFONT;
+    font-size: 100%;
+}
+
+.login-btn button:hover {
+    background-color: #777;
+}
+
+.login-btn img{
+    
+    height: 40px;
+}
+
+
+
+/* Responsive pour mobile */
+@media (max-width: 600px) {
+    .logo img {
+        height: 50px;
+    }
+
+    .nav-links img{
+        font-size: 14px;
+        height:30px;
+    }
+
+    .login-btn button {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    .search-bar {
+        max-width: 100%;  /* La barre prend toute la largeur sur mobile */
+        height: 15px;  /* Garder la hauteur correcte même sur mobile */
+    }
+    .search-bar input[type="text"]::placeholder {
+        color: #ddd;
+        font-size: 15px;
+        font-family:NKFONT;
+        width: 100%;  /* L'input s'étend pour remplir toute la largeur disponible */
+        box-sizing: border-box; /* Pour ne pas que le padding dépasse la taille du conteneur */
+    }
+}
+
+
+/* Style général de la section */
+.album-section {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.album-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Conteneur coulissant */
+.album-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px; /* Espace entre chaque album */
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory; /* Pour un défilement fluide */
+}
+
+/* Style de chaque album */
+.album {
+    flex: 0 0 auto; /* Empêche les albums de se réduire */
+    width: 150px; /* Largeur de chaque album */
+    scroll-snap-align: start; /* Aligne chaque album au début lors du défilement */
+}
+
+.album img {
+    width: 100%; /* Assure que l'image prend toute la largeur de .album */
+    border-radius: 10px; /* Coins arrondis pour les couvertures */
+    transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.album img:hover {
+    transform: scale(1.05); /* Agrandit légèrement au survol */
+}
+
+.album-container.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+.album-container {
+    cursor: grab;
+    cursor: -webkit-grab;
+}
+
+#catalogue_recommande {
+    background-color: #363131;
+    display: flex;               /* Utilisation du Flexbox pour aligner les éléments en ligne */
+    gap: 15px;                     /* Espacement entre les boîtes */
+    padding: 10px;               /* Padding autour du conteneur */
+    justify-content: flex-start; /* Aligne les éléments au début de la ligne */
+    overflow-x: hidden;          /* Cache la barre de défilement horizontale */
+    cursor: grab;                /* Change le curseur pour indiquer un glissement */
+    width: 100%;                 /* Prend toute la largeur disponible */
+    scroll-behavior: smooth;     /* Défilement fluide optionnel */
+}
+
+.petite-boite {
+    padding: 50px;
+    border-radius: 5px;
+    text-align: center;          /* Largeur ajustée pour 5 boîtes par ligne */
+    max-width: 200px;            /* Limite la largeur pour éviter l'étirement */
+    flex-shrink: 0;              /* Empêche les boîtes de rétrécir */
+}
+
+
+
+.petite-boite img {
+    width: 100%;                 /* L'image prend toute la largeur de la boîte */
+    height: auto;
+    border-radius: 3px;         /* Arrondit les coins de l'image */
+}
+
+.petite-boite p {
+    font-family: NKFONT;
+    font-size: 110%;
+    color: #ffffff;
+    margin-top: 0px;             /* Espace entre l'image et le texte */
+    text-align: left;           /* Aligne le texte à droite */
+}
+
+.play-button {
+    background: rgba(0, 0, 0, 0.123);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.play-button:hover {
+    color: rgba(0, 0, 0, 0.5); /* Change de couleur au survol */
+}
+/* Styles pour l'effet de fondu */
+.box-right {
+    position: fixed;
+    top: 80px;
+    right: -10px;
+    width: 50%;
+    max-width: 1000px;
+    height: calc(100vh - 160px);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    z-index: 1000;
+    font-family: "NKFONT";
+
+    /* Initialement masquée */
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none; /* Désactive les interactions lorsque masquée */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation fluide */
+}
+
+/* Lorsque la boîte est visible */
+.box-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto; /* Active les interactions */
+}
+
+
+
+/* Vous pouvez ajouter un style pour le bouton de la navbar */
+.toggle-button {
+    border-radius: 10%;
+    font-size: 45px;
+    position: fixed;
+    bottom: 17px;
+    left: 10px;
+    background-color: #110f0f;
+    color: rgb(122, 131, 255);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+.toggle-button:hover {
+    background-color: #555;
+}
+
+
+.audio-bar {
+    background-color: rgb(22, 22, 22);
+    position: fixed; /* La boîte est fixe */
+    bottom: 0px; /* Positionner juste en bas */
+    left: 0; /* Positionner à gauche de l'écran */
+    width: 100%; /* La barre occupe toute la largeur de l'écran */
+    height: 10%; /* Ajuster la hauteur */
+    box-sizing: border-box;
+    z-index: 500; /* Assurez-vous que la barre est visible au-dessus de tout le reste */
+    color: #ddd;
+    font-family: "NKFONT";
+    
+    /* Centrer les boutons horizontalement et les espacer un peu moins */
+    display: flex;
+    justify-content: center; /* Centrer les boutons horizontalement */
+    align-items: center; /* Centrer verticalement */
+    padding: 5px; /* Réduire la marge interne de la barre */
+}
+
+/* Style pour les boutons de contrôle audio */
+.audio-btn {
+    background-color: transparent;
+    border: none;
+    color: #ddd;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 5px; /* Réduire l'espace entre les boutons */
+    transition: color 0.3s;
+}
+
+.audio-btn:hover {
+    color: white; /* Change la couleur au survol */
+}
+
+#playPause {
+    font-size: 35px; /* Taille plus grande pour le bouton play/pause */
+}
+
+.audio-btn {
+    border: none;
+    padding: 0;
+    margin: 0 10px; /* Réduire l'espace entre les boutons */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.audio-btn img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.audio-btn img:hover {
+    transform: scale(1.1);
+}
+
+
+#catalogue_recommande {
+    display: flex;               /* Disposition en ligne (horizontalement) */
+    overflow-x: auto;            /* Permet le défilement horizontal */
+    width: 100%;                 /* Prend toute la largeur disponible */
+    cursor: grab;                /* Curseur "grab" quand la souris n'est pas enfoncée */
+    -ms-overflow-style: none;    /* Masque la barre de défilement sur Internet Explorer */
+    scrollbar-width: none;       /* Masque la barre de défilement sur Firefox */
+}
+
+/* Masquer la barre de défilement pour les navigateurs Webkit (Chrome, Safari, etc.) */
+#catalogue_recommande::-webkit-scrollbar {
+    display: none;
+}
+
+.petite-boite {
+    min-width: 200px;            /* Largeur minimale de chaque élément */
+    margin-right: 15px;          /* Espace entre les éléments */
+    background-color: #eee;      /* Exemple de fond pour les éléments */
+    user-select: none;           /* Empêche la sélection du texte */
+}
+
+.petite-boite p {
+    user-select: none;           /* Empêche la sélection du texte dans le <p> */
+}
+
+.petite-boite img {
+    user-select: none;           /* Empêche la sélection de l'image */
+    pointer-events: none;        /* Empêche l'interaction avec l'image (clic droit, drag) */
+    -webkit-user-drag: none;     /* Empêche le glisser-déposer de l'image dans les navigateurs Webkit */
+}
+
+
+/* Assurez-vous que le h1-reco a une marge en bas et un espacement suffisant par rapport à la navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px; /* Hauteur fixe pour compenser */
+    background-color: #333;
+    z-index: 1000;
+}
+
+#body {
+    padding-top: 80px; /* Compense la hauteur de la navbar */
+}
+
+#h1-reco {
+    font-size: 175%;
+    font-family: "NKFONT";
+    color: rgb(184, 174, 161);
+}
+
+#h1-fav {
+    font-size: 175%;
+    font-family: "NKFONT";
+    color: rgb(184, 174, 161);
+}
+

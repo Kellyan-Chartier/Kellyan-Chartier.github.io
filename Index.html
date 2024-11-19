@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./Scripts/catalogue.js"></script>
+    <script src="./Scripts/defilement.js"></script>
+    <link rel="icon" href="./Images/logo_site.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Music</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <header class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="Images/logo_site.png" alt="Logo du site"/>
+        </div>
+        
+        <!-- Liens de navigation -->
+        <nav class="nav-links">
+            <a href="index.html">
+                <img src="./Images/logo_accueil.png" alt="Accueil" class="logo_accueil">
+            </a>
+        </nav>
+
+        <!-- Barre de recherche -->
+        <form class="search-bar" action="#" method="get">
+            <input type="text" placeholder="Recherche..." name="search">
+            <button type="submit">🔍</button>
+        </form>
+        
+        <!-- Bouton de connexion -->
+        <div class="login-btn">
+            <button onclick="lancerScript()">
+                <img src="Images/logo_compte.png" alt="Mon Compte"/>
+            </button>
+        </div>
+
+        <!-- Bouton pour afficher/masquer la boîte -->
+        <button id="toggleButton" class="toggle-button" onclick="toggleBox()">🛈</button>
+    </header>
+
+    
+    <div>
+        <h1 id="h1-reco">Musiques recommandées</h1>
+        <div id="catalogue_recommande">
+        <!-- Contenu du catalogue s-->
+        </div>
+    </div>
+
+    <div>
+        <h1 id="h1-fav">Musiques Favoris</h1>
+        <div id="catalogue_favoris">
+        <!-- Contenu du catalogue -->
+        </div>
+    </div>
+
+
+    <!-- Box à droite (masquée par défaut) -->
+    <div id="box-right" class="box-right">
+        <!-- Contenu de la box -->
+        <h3>Ici, vous retrouverez les explications et l'histoire du projet que vous aurez sélectionné.</h3>
+        <p><em>Lancez une musique pour choisir un projet ou un thème que vous voulez explorer.</em></p>
+
+    </div>
+
+    <!-- Barre audio avec des images pour les boutons -->
+    <div id="audio-bar" class="audio-bar">
+        <button class="audio-btn" id="previous">
+            <img src="Images/pause.png" alt="Précédent">
+        </button>
+        <button class="audio-btn" id="playPause">
+            <img src="Images/pause.png" alt="Play/Pause">
+        </button>
+        <button class="audio-btn" id="next">
+            <img src="Images/pause.png" alt="Suivant">
+        </button>
+    </div>
+
+    <script>
+    // Fonction pour afficher/masquer la boîte avec effet de fondu
+    function toggleBox() {
+        const box = document.getElementById('box-right');
+        box.classList.toggle('visible'); // Basculer la classe "visible"
+    }
+    </script>
+</body>
+</html>

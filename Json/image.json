@@ -1,0 +1,10 @@
+{
+    "liste_images":
+    {
+        "test":"../Images/canvatest.png",
+        "bonhomme":"../Images/lesbonhommes.png",
+        "fdp":"../Images/flexeurs.png"
+    }
+
+
+}
