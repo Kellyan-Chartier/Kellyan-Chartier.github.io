@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 
 @font-face {
     font-family:'NKFONT';
@@ -9,6 +11,7 @@
 
 #body {
     background-color: rgb(40, 40, 40);
+    overflow-x: hidden;
 }
 
 /* Style de la barre de navigation */
@@ -16,13 +19,13 @@
     display: flex;
     align-items: center;
     padding: 0px 20px;
-    background-color: #333;
+    background-color: #585858;
     color: white;
     position: fixed;
     width: 100%;
     top: -5px;
     left: 0;
-    z-index: 1000;
+    z-index: 9999;
     box-sizing: border-box;
 }
 
@@ -35,41 +38,42 @@
     }}
 
     .logo img {
-        height: 70px; /* Réduit la taille du logo */
-        margin-top: 10%;
+        height: 80px; /* Réduit la taille du logo */
+        margin-top: 0%;
     }
 
 .search-bar {
     display: flex;
     align-items: center;
     background-color: #555;
-    border-radius: 30px;
-    padding: 15px;
-    height:15px;
-    flex: 10; /* Centre la barre de recherche en lui donnant de l'espace */
-    max-width: 500px;  /* Limite la largeur de la barre de recherche */
-    justify-content: space-between;  /* Espace égal entre l'input et le bouton */
+    border-radius: 20px;
+    padding: 5px 15px; /* Réduit le padding pour ne pas gêner la hauteur */
+    height: 45px; /* Une hauteur suffisante pour permettre la saisie */
+    flex: 10;
+    max-width: 500px;
+    justify-content: space-between;
 }
 
 .search-bar input[type="text"] {
     border: none;
     background: none;
     color: white;
-    padding: 0px;
+    padding: 5px 10px; /* Ajout d'un padding interne */
     outline: none;
-    width: 110%;  /* L'input s'étend pour remplir toute la largeur disponible */
-    box-sizing: border-box; /* Pour ne pas que le padding dépasse la taille du conteneur */
-    height: 100%;  /* S'assure que l'input prend toute la hauteur de son conteneur */
-    line-height: 30px; /* Centre verticalement le texte dans l'input */
+    width: 90%; /* Éviter que l'input dépasse du conteneur */
+    box-sizing: border-box;
+    height: auto; /* Laissez le navigateur ajuster automatiquement */
+    line-height: normal; /* Supprimez une éventuelle contrainte de hauteur */
+    font-family: "NKFONT", sans-serif;
+    font-size: 30px;
 }
 
 .search-bar input[type="text"]::placeholder {
     color: #ddd;
-    font-size: 15px;
-    font-family:NKFONT;
-    width: 110%;  /* L'input s'étend pour remplir toute la largeur disponible */
-    box-sizing: border-box; /* Pour ne pas que le padding dépasse la taille du conteneur */
+    font-size: 25px;
 }
+    
+
 
 .search-bar button {
     background: none;
@@ -106,7 +110,7 @@
 }
 
 .login-btn button {
-    padding: 10px 7px;
+    padding: 7px 7px;
     background-color: #555;
     color: white;
     border: none;
@@ -121,10 +125,8 @@
 }
 
 .login-btn img{
-    
     height: 40px;
 }
-
 
 
 /* Responsive pour mobile */
@@ -149,11 +151,11 @@
 
     .search-bar {
         max-width: 100%;  /* La barre prend toute la largeur sur mobile */
-        height: 15px;  /* Garder la hauteur correcte même sur mobile */
+        height: 40px;  /* Garder la hauteur correcte même sur mobile */
     }
     .search-bar input[type="text"]::placeholder {
         color: #ddd;
-        font-size: 15px;
+        font-size: 20px;
         font-family:NKFONT;
         width: 100%;  /* L'input s'étend pour remplir toute la largeur disponible */
         box-sizing: border-box; /* Pour ne pas que le padding dépasse la taille du conteneur */
@@ -163,6 +165,8 @@
 
 /* Style général de la section */
 .album-section {
+    border-radius: 10px; /* Ajustez la valeur pour plus ou moins d'arrondi */
+    overflow: hidden;
     margin: 20px 0;
     padding: 10px;
 }
@@ -175,42 +179,16 @@
 /* Conteneur coulissant */
 .album-container {
     display: flex;
-    overflow-x: auto;
     gap: 15px; /* Espace entre chaque album */
     padding-bottom: 10px;
     scroll-snap-type: x mandatory; /* Pour un défilement fluide */
 }
 
-/* Style de chaque album */
-.album {
-    flex: 0 0 auto; /* Empêche les albums de se réduire */
-    width: 150px; /* Largeur de chaque album */
-    scroll-snap-align: start; /* Aligne chaque album au début lors du défilement */
-}
-
-.album img {
-    width: 100%; /* Assure que l'image prend toute la largeur de .album */
-    border-radius: 10px; /* Coins arrondis pour les couvertures */
-    transition: transform 0.3s ease; /* Animation au survol */
-}
-
-.album img:hover {
-    transform: scale(1.05); /* Agrandit légèrement au survol */
-}
-
-.album-container.active {
-    cursor: grabbing;
-    cursor: -webkit-grabbing;
-}
-.album-container {
-    cursor: grab;
-    cursor: -webkit-grab;
-}
-
 #catalogue_recommande {
+    border-radius: 15px;
     background-color: #363131;
     display: flex;               /* Utilisation du Flexbox pour aligner les éléments en ligne */
-    gap: 15px;                     /* Espacement entre les boîtes */
+    gap: 3px;                     /* Espacement entre les boîtes */
     padding: 10px;               /* Padding autour du conteneur */
     justify-content: flex-start; /* Aligne les éléments au début de la ligne */
     overflow-x: hidden;          /* Cache la barre de défilement horizontale */
@@ -219,28 +197,57 @@
     scroll-behavior: smooth;     /* Défilement fluide optionnel */
 }
 
-.petite-boite {
-    padding: 50px;
-    border-radius: 5px;
-    text-align: center;          /* Largeur ajustée pour 5 boîtes par ligne */
-    max-width: 200px;            /* Limite la largeur pour éviter l'étirement */
-    flex-shrink: 0;              /* Empêche les boîtes de rétrécir */
+#catalogue_favoris {
+    border-radius: 15px;
+    background-color: #363131;
+    display: flex;                /* Utilisation du Flexbox pour aligner les éléments en ligne */
+    gap: 1px;                     /* Espacement entre les boîtes */
+    padding: 10px;                /* Padding autour du conteneur */
+    justify-content: flex-start; /* Aligne les éléments au début de la ligne */
+    overflow-x: hidden;          /* Cache la barre de défilement horizontale */
+    cursor: grab;                /* Change le curseur pour indiquer un glissement */
+    width: 100%;                 /* Prend toute la largeur disponible */
+    scroll-behavior: smooth;  
+
 }
 
 
+.petite-boite {
+    position: relative;  /* ou 'static' */
+    border-radius: 10px;
+    max-width: 250px;            /* Limite la largeur pour éviter l'étirement */
+    flex-shrink: 0;              /* Empêche les boîtes de rétrécir */
+    min-width: 200px;           /* Largeur minimale de chaque boîte */
+    margin-right: 15px;         /* Espace entre les boîtes */
+    background-color: #eee;     /* Couleur de fond */
+    user-select: none;          /* Empêche la sélection du texte */
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease; /* Transition fluide */
+    overflow: visible;
+    will-change: transform; /* Optimisation du rendu pour les animations de transformation */
+}
+
+/* Effet au survol */
+.petite-boite:hover {
+    transform: scale(1) rotate(-3deg) skew(5deg); /* Agrandit et incline légèrement */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+    cursor: pointer; /* Change le curseur en pointeur */
+    z-index: 1000;
+}
 
 .petite-boite img {
     width: 100%;                 /* L'image prend toute la largeur de la boîte */
     height: auto;
-    border-radius: 3px;         /* Arrondit les coins de l'image */
+    border-radius: 6px;         /* Arrondit les coins de l'image */
+    user-select: none;           /* Empêche la sélection de l'image */
+    pointer-events: none;        /* Empêche l'interaction avec l'image (clic droit, drag) */
+    -webkit-user-drag: none;     /* Empêche le glisser-déposer de l'image dans les navigateurs Webkit */
 }
 
 .petite-boite p {
     font-family: NKFONT;
-    font-size: 110%;
+    font-size: 130%;
     color: #ffffff;
-    margin-top: 0px;             /* Espace entre l'image et le texte */
-    text-align: left;           /* Aligne le texte à droite */
+    
 }
 
 .play-button {
@@ -249,9 +256,13 @@
     color: white;
     font-size: 20px;
     cursor: pointer;
+    transition: transform 0.1s ease-in-out; /* Transition fluide */
+    transform-origin: center; /* Point de transformation */
+    cursor: pointer; /* Change le curseur pour indiquer une action */
 }
 .play-button:hover {
-    color: rgba(0, 0, 0, 0.5); /* Change de couleur au survol */
+    color: rgba(255, 255, 255, 0.479); /* Change de couleur au survol */
+    transform: skewX(-15deg); /* Incline le cœur vers la gauche */
 }
 /* Styles pour l'effet de fondu */
 .box-right {
@@ -372,28 +383,9 @@
     scrollbar-width: none;       /* Masque la barre de défilement sur Firefox */
 }
 
-/* Masquer la barre de défilement pour les navigateurs Webkit (Chrome, Safari, etc.) */
 #catalogue_recommande::-webkit-scrollbar {
-    display: none;
+    display: none; /* Masquer la barre de défilement pour les navigateurs Webkit (Chrome, Safari, etc.) */
 }
-
-.petite-boite {
-    min-width: 200px;            /* Largeur minimale de chaque élément */
-    margin-right: 15px;          /* Espace entre les éléments */
-    background-color: #eee;      /* Exemple de fond pour les éléments */
-    user-select: none;           /* Empêche la sélection du texte */
-}
-
-.petite-boite p {
-    user-select: none;           /* Empêche la sélection du texte dans le <p> */
-}
-
-.petite-boite img {
-    user-select: none;           /* Empêche la sélection de l'image */
-    pointer-events: none;        /* Empêche l'interaction avec l'image (clic droit, drag) */
-    -webkit-user-drag: none;     /* Empêche le glisser-déposer de l'image dans les navigateurs Webkit */
-}
-
 
 /* Assurez-vous que le h1-reco a une marge en bas et un espacement suffisant par rapport à la navbar */
 .navbar {
@@ -421,3 +413,32 @@
     color: rgb(184, 174, 161);
 }
 
+.favoris-button {
+    font-size: 30px;
+    color:rgb(255, 255, 255);
+    display: inline-block;
+    font-family: "Arial", sans-serif; /* Choisissez une police adaptée */
+    transition: transform 0.1s ease-in-out; /* Transition fluide */
+    transform-origin: center; /* Point de transformation */
+    cursor: pointer; /* Change le curseur pour indiquer une action */
+
+}
+
+.favoris-button:hover {
+    font-size: 30px;
+    color:rgba(255, 255, 255, 0.493);
+    transform: skewX(-15deg); /* Incline le cœur vers la gauche */
+
+}
+
+#onkonk{
+
+    font-family: "NKFONT";
+    font-size: 1000px;
+    padding-top: 10px;
+}
+
+.container {
+    position: relative; /* Si ce n'est pas déjà défini */
+    overflow: visible;  /* Permet aux éléments enfants de déborder */
+}

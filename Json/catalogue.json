@@ -2,13 +2,13 @@
     "catalogue":
     {
         "id1":{
-            "texte":"rouge",
+            "texte":"musiques cools",
             "Images":"https://i.pinimg.com/originals/f1/d5/ec/f1d5ecb4470209cd95f751d322680288.png",
             "href":"https://pornhub.com",
             "musique":"../musiques/Our Last Summer.mp3",
             "color":{
                 "r" : 255,
-                "g" : 0,
+                "g" : 200,
                 "b" : 0
             }
         },
