@@ -1,4 +1,7 @@
+import("./infos.js")
+
 // catalogue.js
+
 
 async function chargement_catalogue() { 
     try {
@@ -10,14 +13,12 @@ async function chargement_catalogue() {
     }
 }
 
-async function couleurGlow(couleur,filtre) {
+async function couleurGlow(couleur, filtre) {
 
-    const glow_r = couleur.r - filtre[0]
-    const glow_g = couleur.g - filtre[1]
-    const glow_b = couleur.b - filtre[2]
-    const glow = [glow_r, glow_g, glow_b]
-    return glow
-
+    const glow_r = Math.min(Math.max(couleur.r - filtre[0], 0), 255); // Limiter entre 0 et 255
+    const glow_g = Math.min(Math.max(couleur.g - filtre[1], 0), 255);
+    const glow_b = Math.min(Math.max(couleur.b - filtre[2], 0), 255);
+    return [glow_r, glow_g, glow_b];
 }
 
 
@@ -43,57 +44,108 @@ function miseAJourBoiteOrdre(id_musique, ordre) {
     }
 }
 
-function playAudio(musiqueFichier, id_musique) {
+let boiteActive = null; // Variable pour suivre la boîte actuellement active
+let boites = []; // Tableau pour stocker les glow initiaux de chaque boîte
+
+// Fonction pour sauvegarder le glow initial
+function sauvegarderGlowInitial(boite) {
+    const initialGlow = getComputedStyle(boite).boxShadow;
+    const initialZIndex = getComputedStyle(boite).zIndex; // Sauvegarder le z-index initial
+    boites.push({ boite, initialGlow, initialZIndex });
+}
+
+// Fonction pour récupérer le glow initial et le z-index d'une boîte spécifique
+function getGlowInitial(boite) {
+    const foundBoite = boites.find(b => b.boite === boite);
+    return foundBoite ? { glow: foundBoite.initialGlow, zIndex: foundBoite.initialZIndex } : { glow: '', zIndex: '' };
+}
+
+async function playAudio(musiqueFichier, id_musique, id) {
     try {
-        for (const [id] of liste_id_musiques) {
-            miseAJourBoiteOrdre(id, "lecture"); // Mettre tous les boutons à ▶
+        // Identifier la boîte active
+        const activeBoite = document.querySelector(`#btn-${id_musique}`).closest(".petite-boite");
+
+        // Sauvegarder le glow initial de la boîte si ce n'est pas déjà fait
+        if (!boites.some(b => b.boite === activeBoite)) {
+            sauvegarderGlowInitial(activeBoite);
         }
-    
+
+        // Réinitialiser l'état des autres boutons
+        const catalogueContainer = document.getElementById("catalogue_recommande");
+        const buttons = catalogueContainer.querySelectorAll('.play-button');
+        buttons.forEach(button => {
+            if (button.id !== `btn-${id_musique}`) {
+                button.innerHTML = "▶"; // Remettre les autres boutons en "play"
+            }
+        });
+
+        // Réinitialiser l'état de la boîte précédemment active, si une boîte est déjà active
+        if (boiteActive && boiteActive !== activeBoite) {
+            const { glow, zIndex } = getGlowInitial(boiteActive);
+            boiteActive.style.boxShadow = glow; // Restaurer le glow initial
+            boiteActive.style.transform = "scale(1)"; // Réinitialiser la taille
+            boiteActive.style.zIndex = zIndex; // Restaurer le z-index initial
+        }
+
+        // Conserver la nouvelle boîte active
+        boiteActive = activeBoite;
+
+        // Calculer la couleur pour le glow uniquement pour la nouvelle boîte sélectionnée
+        if (activeBoite) {
+            const couleurBase = getComputedStyle(activeBoite).backgroundColor;
+            const rgbMatch = couleurBase.match(/\d+/g);
+            if (rgbMatch) {
+                const r = parseInt(rgbMatch[0]);
+                const g = parseInt(rgbMatch[1]);
+                const b = parseInt(rgbMatch[2]);
+
+                const [glowR, glowG, glowB] = await couleurGlow({ r, g, b }, [40, 40, 40]);
+
+                activeBoite.style.boxShadow = `0 0 50px 20px rgba(${glowR}, ${glowG}, ${glowB}, 1), 0 0 80px 30px rgba(${glowR}, ${glowG}, ${glowB}, 0.6)`;
+                activeBoite.style.transform = "scale(1.05)"; // Agrandir la boîte active
+                activeBoite.style.zIndex = '9999'; // Assurez-vous que le glow est visible au-dessus des autres boîtes
+            }
+        }
+
+        // Code de gestion de la musique
         if (chemin_musique_actuel != musiqueFichier && chemin_musique_actuel != false) {
             musiqueActuel.pause();
             musiqueActuel = new Audio(musiqueFichier);
             chemin_musique_actuel = musiqueFichier;
+
+            musiqueActuel.volume = globalVolume;
             musiqueActuel.play();
             isPaused = false;
-            miseAJourBoiteOrdre(id_musique, "pause"); // Changer le bouton en pause
-            console.log("Nouvelle musique en cours");
-    
+            miseAJourBoiteOrdre(id_musique, "pause");
         } else if (musiqueActuel && !isPaused) {
             musiqueActuel.pause();
             isPaused = true;
-            miseAJourBoiteOrdre(id_musique, "lecture"); // Changer le bouton en lecture
-            console.log("Musique mise en pause");
-    
+            miseAJourBoiteOrdre(id_musique, "lecture");
         } else if (musiqueActuel && isPaused) {
-            musiqueActuel.play().then(() => {
-                isPaused = false;
-                miseAJourBoiteOrdre(id_musique, "pause"); // Changer le bouton en pause
-                console.log("Musique reprise");
-            }).catch((error) => console.error("Erreur :", error));
-    
+            musiqueActuel.play();
+            isPaused = false;
+            miseAJourBoiteOrdre(id_musique, "pause");
         } else {
             chemin_musique_actuel = musiqueFichier;
             musiqueActuel = new Audio(musiqueFichier);
-            musiqueActuel.play().then(() => {
-                isPaused = false;
-                miseAJourBoiteOrdre(id_musique, "pause"); // Changer le bouton en pause
-                console.log("Lecture commencée");
-            }).catch((error) => console.error("Erreur :", error));
-    
-            musiqueActuel.onended = () => {
-                musiqueActuel = null;
-                isPaused = false;
-                miseAJourBoiteOrdre(id_musique, "lecture"); // Musique terminée, revenir à lecture
-                console.log("Musique terminée");
-    
-            };
+
+            musiqueActuel.volume = globalVolume;
+            musiqueActuel.play();
+            isPaused = false;
+            miseAJourBoiteOrdre(id_musique, "pause");
         }
+
         return;
-    }
-    catch{
-        playAudio(musiqueFichier, id_musique)
+    } catch (error) {
+        console.error("Erreur dans playAudio : ", error);
     }
 }
+
+
+
+
+
+
 
 let isDragging = false;  // Pour savoir si la souris est en train de glisser
 let startX;              // Position de départ de la souris
@@ -186,7 +238,7 @@ async function afficherFavoris() {
             // Générer le code HTML pour chaque favori
             let rgb = await couleurGlow(item.color, [80, 80, 80]);
             catalogueContainer.innerHTML += `
-            <div class="petite-boite" 
+            <div class="petite-boite"
                 style="
                 background-color: rgb(${item.color.r},${item.color.g},${item.color.b});
                 box-shadow: 0 4px 8px rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]});
@@ -306,9 +358,10 @@ async function boite_catalogue() {
 
     let id_musique = 0;
     for (const [id, item] of itemsArray) {  // Utilisation de destructuration pour obtenir l'ID et l'item
+        
         liste_id_musiques.push([id_musique, item.musique]);
         let rgb = await couleurGlow(item.color, [80, 80, 80]);
-
+        let data = JSON.stringify(item).replace(/"/g, '&quot;');
         catalogueContainer.innerHTML += `
         <div class="petite-boite" 
             style="
@@ -329,7 +382,7 @@ async function boite_catalogue() {
                     style="border: none; background: none; cursor: pointer;">
                     ♡
                 </button>
-                <button id="btn-${id_musique}" class="play-button" onclick="playAudio('${item.musique}', ${id_musique})" 
+                <button id="btn-${id_musique}" class="play-button" onclick="playAudio('${item.musique}', '${id_musique}', '${id}') ; infosgiver('${data}') ; " 
                     style="border: none; background: none; cursor: pointer;">
                     ▶
                 </button>
@@ -357,3 +410,43 @@ async function shuffleArray(array) {
 
 window.onload = quandClickerFavori;
 window.onload = boite_catalogue;
+
+
+
+// Initialisation du volume global
+let globalVolume = 1.0; // Volume par défaut
+
+document.addEventListener("DOMContentLoaded", () => {
+    const volumeControl = document.getElementById("global-volume");
+
+    // Charger la valeur du volume depuis le localStorage
+    const savedVolume = localStorage.getItem("globalVolume");
+    if (savedVolume !== null) {
+        globalVolume = parseFloat(savedVolume); // Récupérer la valeur sauvegardée
+    }
+
+    // Synchroniser la barre de volume avec la valeur enregistrée
+    volumeControl.value = globalVolume;
+
+    // Appliquer le volume global à la musique actuelle (si elle est en cours)
+    if (musiqueActuel) {
+        musiqueActuel.volume = globalVolume;
+    }
+
+    // Écouter les modifications de la barre de volume
+    volumeControl.addEventListener("input", (event) => {
+        globalVolume = parseFloat(event.target.value);
+
+        // Sauvegarder la nouvelle valeur dans le localStorage
+        localStorage.setItem("globalVolume", globalVolume);
+
+        // Mettre à jour le volume de la musique en cours
+        if (musiqueActuel) {
+            musiqueActuel.volume = globalVolume;
+        }
+    });
+});
+
+
+
+

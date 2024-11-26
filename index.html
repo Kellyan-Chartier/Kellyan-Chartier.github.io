@@ -4,6 +4,7 @@
     <script src="./Scripts/cookies.js"></script>
     <script src="./Scripts/catalogue.js"></script>
     <script src="./Scripts/defilement.js"></script>
+    <script src="./Scripts/infos.js"></script>
     <link rel="icon" href="./Images/logo_site.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,12 +56,6 @@
         <!-- Contenu du catalogue -->
         </div>
     </div>
-
-    <div>
-        <p id="onkonk">Musiques Favoris</p>
-    </div>
-
-
     <!-- Box à droite (masquée par défaut) -->
     <div id="box-right" class="box-right">
         <!-- Contenu de la box -->
@@ -71,15 +66,13 @@
 
     <!-- Barre audio avec des images pour les boutons -->
     <div id="audio-bar" class="audio-bar">
-        <button class="audio-btn" id="previous">
-            <img src="Images/pause.png" alt="Précédent">
-        </button>
         <button class="audio-btn" id="playPause">
             <img src="Images/pause.png" alt="Play/Pause">
         </button>
-        <button class="audio-btn" id="next">
-            <img src="Images/pause.png" alt="Suivant">
-        </button>
+            <div class="volume-control">
+                <label for="global-volume" class="volume-label">🔊</label>
+                <input id="global-volume" type="range" min="0" max="1" step="0.01" value="1" class="volume-slider">
+            </div>
     </div>
 
     <script>
