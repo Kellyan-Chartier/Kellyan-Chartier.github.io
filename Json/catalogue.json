@@ -5,22 +5,16 @@
             "texte":"musiques cools",
             "Images":"https://i.pinimg.com/originals/f1/d5/ec/f1d5ecb4470209cd95f751d322680288.png",
             "href":"https://pornhub.com",
-            "info": {
-                "titre": "Ceci est un magnifique test, réussi.",
-                "href": "https://google.com",
-                "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam",
-                "image": "../Images/flexeurs.png"
-            },
             "musique":"../musiques/Our Last Summer.mp3",
             "color":{
-                "r" : 0,
-                "g" : 0,
+                "r" : 255,
+                "g" : 200,
                 "b" : 0
             }
         },
         "id2":{
             "texte":"Playlist Design",
-            "Images":"https://e7.pngegg.com/pngimages/343/773/png-clipart-question-mark-question-mark.png",
+            "Images":"https://www.pointdevue.fr/storage/images/biography_900/2023/04/850367_001t4OEtHl5qj.jpg",
             "href":"https://pornhub.com",
             "musique":"../musiques/Map (Night) - Tomodachi Life OST.mp3",
             "color": {
@@ -33,7 +27,7 @@
             "texte":"Playlist Dev",
             "Images":"https://www.nameslook.com/names/keyant-nameslook.jpg",
             "href":"https://pornhub.com",
-            "musique":"../musiques/RL.mp",
+            "musique":"",
             "color": {
                 "r" : 10,
                 "g" : 25,
@@ -107,14 +101,14 @@
             }
         },
         "id10":{
-            "texte":"Milan Focken",
+            "texte":"Playlist 🥵",
             "Images":"../Images/canvatest.png",
             "href":"https://pornhub.com",
             "musique":"",
             "color": {
-                "r" : 162,
-                "g" : 12,
-                "b" : 119
+                "r" : 10,
+                "g" : 2,
+                "b" : 250
             }
         },
         "id11":{

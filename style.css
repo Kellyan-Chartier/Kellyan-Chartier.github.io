@@ -12,74 +12,22 @@
 #body {
     background-color: rgb(40, 40, 40);
     overflow-x: hidden;
-    min-height: 150vh; /* 150% de la hauteur de l'écran */
 }
 
+/* Style de la barre de navigation */
 .navbar {
-    position: relative; /* Contexte pour ::before */
-    z-index: 10; /* Contenu visible par-dessus */
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #585858;
+    color: white;
+    position: fixed;
     width: 100%;
-    height: 80px; /* Hauteur de la navbar */
-    background-color: #585858; /* Couleur de fond */
-    overflow: hidden; /* Masque ce qui dépasse */
-    display: flex; /* Organisation interne */
-    align-items: center; /* Centre verticalement */
-    justify-content: space-between; /* Espacement des éléments */
-    padding: 0 20px; /* Espacement latéral */
-    margin: 0; /* S'assurer qu'il n'y a pas de marge ajoutée */
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-}
-
-.navbar::before {
-    content: '';
-    position: absolute;
-    top: 0;
+    top: -5px;
     left: 0;
-    width: 300%; /* Triple largeur pour garantir le débord */
-    height: 1200%; /* Triple hauteur pour garantir le débord */
-    background-image: url('Images/logo_site.png');
-    background-size: 500px 500px; /* Taille des logos pour plus de densité */
-    background-repeat: repeat; /* Répète partout */
-    opacity: 0.05; /* Reste discret */
-    transform: translate(0, 0) rotate(20deg); /* Inclinaison */
-    z-index: -1; /* Passe derrière le contenu */
-    animation: move-diagonal 10s linear infinite, fade-in-out-navbar 10s linear infinite; /* Ajout de l'animation de fondu */
+    z-index: 9999;
+    box-sizing: border-box;
 }
-
-/* Animation diagonale */
-@keyframes move-diagonal {
-    0% {
-        transform: translate(-10%, -10%) rotate(20deg); /* Début */
-    }
-    100% {
-        transform: translate(-22%, -22%) rotate(20deg); /* Fin */
-    }
-}
-
-/* Animation de fondu pour la navbar */
-@keyframes fade-in-out-navbar {
-    0% {
-        opacity: 0; /* Début du fondu (opacité nulle) */
-    }
-    10% {
-        opacity: 0.05; /* Augmentation de l'opacité */
-    }
-    90% {
-        opacity: 0.05; /* Opacité constante pendant l'animation */
-    }
-    100% {
-        opacity: 0; /* Fin du fondu (opacité nulle) */
-    }
-}
-
-
-
-
-
 
 /* Centrer la barre de recherche en utilisant une combinaison de flexbox */
 
@@ -322,12 +270,11 @@ body, html {
     top: 80px;
     right: -10px;
     width: 50%;
-    max-width: 1920px;
+    max-width: 1000px;
     height: calc(100vh - 160px);
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
-    overflow: hidden; /* Cache tout contenu qui déborde */
     box-sizing: border-box;
     border-radius: 10px;
     z-index: 1000;
@@ -347,141 +294,53 @@ body, html {
     pointer-events: auto; /* Active les interactions */
 }
 
-#box-right h3 {
-    font-size: 1.5em; /* Taille de police relative */
-    word-wrap: break-word; /* Gère les très longs mots */
-    text-align: center; /* Centrer le titre */
-}
-
-#box-right p {
-    font-size: 1em; /* Taille de police relative */
-    line-height: 1.5; /* Meilleure lisibilité */
-    text-align: justify; /* Justifie le texte pour un look soigné */
-}
-
-#box-right img {
-    max-width: 100%; /* S'assure que l'image reste dans les limites */
-    max-height: 400px; /* Limite la hauteur des images */
-    object-fit: contain; /* Ajuste l'image sans déformation */
-    margin: 0 auto; /* Centre l'image horizontalement */
-    display: block; /* Force un conteneur de bloc */
-}
-
 
 
 /* Vous pouvez ajouter un style pour le bouton de la navbar */
-/* Bouton toggle avec des couleurs dynamiques */
 .toggle-button {
     border-radius: 10%;
     font-size: 45px;
     position: fixed;
-    bottom: 1%;
-    left: 15px;
-    background: linear-gradient(45deg, #ff7e5f, #feb47b, #6a11cb, #2575fc, #00c6ff);
-    background-size: 400% 400%; /* Taille du fond pour permettre un dégradé fluide */
-    color: white;
+    bottom: 17px;
+    left: 10px;
+    background-color: #110f0f;
+    color: rgb(122, 131, 255);
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 10000;
-    animation: gradientAnimation 5s ease infinite; /* Animation du gradient */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Transition pour la taille et la couleur */
+    z-index: 2000;
 }
 
-/* Animation du dégradé */
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Effet de survol de la souris */
 .toggle-button:hover {
-    transform: scale(1.1); /* Agrandir le bouton légèrement */
-    animation: none; /* Stopper l'animation du dégradé */
-    background-color: #6a11cb; /* Couleur violette éclatante */
+    background-color: #555;
 }
-
 
 
 .audio-bar {
-    overflow: hidden;
-    background-color: rgb(22, 22, 22); /* Couleur de fond originale */
-    position: fixed; /* Garder la barre fixée en bas de la page */
-    bottom: 0px; /* Assurer qu'elle est bien en bas */
-    left: 0; /* Alignée à gauche */
-    width: 100%; /* Prend toute la largeur */
-    height: 10%; /* Hauteur de la barre */
+    background-color: rgb(22, 22, 22);
+    position: fixed; /* La boîte est fixe */
+    bottom: 0px; /* Positionner juste en bas */
+    left: 0; /* Positionner à gauche de l'écran */
+    width: 100%; /* La barre occupe toute la largeur de l'écran */
+    height: 10%; /* Ajuster la hauteur */
     box-sizing: border-box;
-    z-index: 9999; /* Placer la barre au-dessus du reste du contenu */
+    z-index: 500; /* Assurez-vous que la barre est visible au-dessus de tout le reste */
     color: #ddd;
     font-family: "NKFONT";
     
     /* Centrer les boutons horizontalement et les espacer un peu moins */
     display: flex;
-    justify-content: center; /* Centrer les éléments horizontalement */
+    justify-content: center; /* Centrer les boutons horizontalement */
     align-items: center; /* Centrer verticalement */
-    padding: 5px; /* Marge interne de la barre */
+    padding: 5px; /* Réduire la marge interne de la barre */
 }
-
-.audio-bar::before {
-    content: '';
-    position: absolute; /* Positionner l'élément par rapport à la barre */
-    top: 0;
-    left: 0;
-    width: 200%; /* Étendre la largeur pour permettre au logo de défiler correctement */
-    height: 1200%; /* Garder la hauteur de la barre */
-    background-image: url('Images/logo_site.png'); /* Logo utilisé pour l'animation */
-    background-size: 100px 100px; /* Taille des logos */
-    background-repeat: repeat; /* Répéter les logos */
-    opacity: 0.05; /* Opacité pour un effet léger */
-    transform: rotate(-15deg); /* Rotation pour l'effet dynamique */
-    z-index: -1; /* Placer derrière les autres éléments */
-    animation: move-diagonal-audio 10s linear infinite, fade-in-out 10s linear infinite; /* Animation fluide avec fondu */
-}
-
-/* Animation pour faire bouger le logo de gauche à droite et de bas en haut */
-@keyframes move-diagonal-audio {
-    0% {
-        transform: translate(-30%, -30%) rotate(-15deg); /* Départ de la position */
-    }
-    100% {
-        transform: translate(-22%, -22%) rotate(-15deg); /* Fin du déplacement */
-    }
-}
-
-/* Animation de fondu pour cacher la coupure à la fin et au début de la boucle */
-@keyframes fade-in-out {
-    0% {
-        opacity: 0; /* Début du fondu (opacité nulle) */
-    }
-    10% {
-        opacity: 0.05; /* Augmentation de l'opacité */
-    }
-    90% {
-        opacity: 0.05; /* Opacité constante pendant l'animation */
-    }
-    100% {
-        opacity: 0; /* Fin du fondu (opacité nulle) */
-    }
-}
-
-
 
 /* Style pour les boutons de contrôle audio */
 .audio-btn {
-    position: fixed;
-    left: 45%;
     background-color: transparent;
     border: none;
     color: #ddd;
-    font-size: 30%;
+    font-size: 30px;
     cursor: pointer;
     padding: 10px;
     margin: 0 5px; /* Réduire l'espace entre les boutons */
@@ -493,7 +352,15 @@ body, html {
 }
 
 #playPause {
-    font-size: 150%; /* Taille plus grande pour le bouton play/pause */
+    font-size: 35px; /* Taille plus grande pour le bouton play/pause */
+}
+
+.audio-btn {
+    border: none;
+    padding: 0;
+    margin: 0 10px; /* Réduire l'espace entre les boutons */
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
 .audio-btn img {
@@ -527,7 +394,7 @@ body, html {
     width: 100%;
     height: 80px; /* Hauteur fixe pour compenser */
     background-color: #333;
-    z-index: 10000;
+    z-index: 1000;
 }
 
 #body {
@@ -535,14 +402,12 @@ body, html {
 }
 
 #h1-reco {
-    padding-left: 1%;
     font-size: 175%;
     font-family: "NKFONT";
     color: rgb(184, 174, 161);
 }
 
 #h1-fav {
-    padding-left: 1%;
     font-size: 175%;
     font-family: "NKFONT";
     color: rgb(184, 174, 161);
@@ -576,96 +441,4 @@ body, html {
 .container {
     position: relative; /* Si ce n'est pas déjà défini */
     overflow: visible;  /* Permet aux éléments enfants de déborder */
-}
-
-/* Conteneur de la barre de volume */
-.volume-control {
-    position: absolute; /* Position absolue pour la placer à droite */
-    right: 20px; /* Espacement depuis le bord droit */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 20px;
-    padding: 5px;
-    border-radius: 20px;
-    background-color: #272427a4;
-    max-width: 500px;
-    
-}
-
-/* Label de la barre */
-.volume-label {
-    font-size: 1em;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-/* Slider stylisé */
-.volume-slider {
-    -webkit-appearance: none; /* Pour supprimer le style par défaut */
-    appearance: none;
-    width: 110%;
-    height: 18px;
-    padding: 2px;
-    background: linear-gradient(90deg, #311733, #6a0377);
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-/* Curseur de la barre */
-.volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #611868;
-    border: 10px solid #680e0e;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.volume-slider::-webkit-slider-thumb:hover {
-    background-color: #551f55;
-    transform: scale(1.2);
-}
-
-.volume-slider::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    background-color: #ffffff;
-    border: 1px solid #000000;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.volume-slider::-moz-range-thumb:hover {
-    background-color: #ff00dd46;
-    transform: scale(1.2);
-}
-
-
-/* Media Query pour les petits écrans (smartphones) */
-@media (max-width: 600px) {
-    /* Réduire la largeur de la barre de volume sur les petits écrans */
-    .volume-slider {
-        width: 100px; /* Réduire la largeur */
-    }
-    .audio-btn {
-        left: 20%;
-    }
-    /* Réduire la taille du curseur */
-    .volume-slider::-webkit-slider-thumb,
-    .volume-slider::-moz-range-thumb {
-        width: 15px;
-        height: 15px;
-    }
-}
-
-.boite-active {
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 1);
-    transform: scale(1.02); /* Optionnel : léger agrandissement */
-    transition: all 0.3s ease-in-out; /* Animation pour un effet fluide */
 }
