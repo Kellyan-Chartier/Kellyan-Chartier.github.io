@@ -87,7 +87,8 @@ body, html {
 @media (max-width: 600px) {
     .logo img {
         height: 30px; /* Réduit la taille du logo */
-    }}
+    }
+  }
 
     .logo img {
         height: 80px; /* Réduit la taille du logo */
@@ -104,6 +105,8 @@ body, html {
     flex: 10;
     max-width: 500px;
     justify-content: space-between;
+
+
 }
 
 .search-bar input[type="text"] {
@@ -212,6 +215,10 @@ body, html {
         width: 100%;  /* L'input s'étend pour remplir toute la largeur disponible */
         box-sizing: border-box; /* Pour ne pas que le padding dépasse la taille du conteneur */
     }
+
+    .box-right {
+        max-width: 100%;
+    }
 }
 
 
@@ -316,7 +323,6 @@ body, html {
     color: rgba(255, 255, 255, 0.479); /* Change de couleur au survol */
     transform: skewX(-15deg); /* Incline le cœur vers la gauche */
 }
-/* Styles pour l'effet de fondu */
 .box-right {
     position: fixed;
     top: 80px;
@@ -327,7 +333,8 @@ body, html {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
-    overflow: hidden; /* Cache tout contenu qui déborde */
+    overflow-y: auto; /* Permet le défilement vertical */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
     box-sizing: border-box;
     border-radius: 10px;
     z-index: 1000;
@@ -345,6 +352,18 @@ body, html {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto; /* Active les interactions */
+    z-index: 101010;
+}
+
+/* Media query pour les petits écrans (par exemple, smartphones) */
+@media screen and (max-width: 768px) {
+    .box-right {
+        top: 80px;
+        right: 0;
+        width: 100%; /* Prend toute la largeur */
+        height: calc(100vh - 170px);
+        padding: 10px; /* Réduction du padding pour mieux s'adapter */
+    }
 }
 
 #box-right h3 {
@@ -356,16 +375,18 @@ body, html {
 #box-right p {
     font-size: 1em; /* Taille de police relative */
     line-height: 1.5; /* Meilleure lisibilité */
-    text-align: justify; /* Justifie le texte pour un look soigné */
+    text-align: center; /* Justifie le texte pour un look soigné */
 }
 
 #box-right img {
     max-width: 100%; /* S'assure que l'image reste dans les limites */
-    max-height: 400px; /* Limite la hauteur des images */
+    max-height: 500px; /* Limite la hauteur des images */
     object-fit: contain; /* Ajuste l'image sans déformation */
+    margin-top: 10px;
     margin: 0 auto; /* Centre l'image horizontalement */
     display: block; /* Force un conteneur de bloc */
 }
+
 
 
 
@@ -668,4 +689,32 @@ body, html {
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 1);
     transform: scale(1.02); /* Optionnel : léger agrandissement */
     transition: all 0.3s ease-in-out; /* Animation pour un effet fluide */
+}
+
+.audio-btn {
+    margin-right: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.progress-container {
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.progress-bar {
+    width: 50%;
+    position: fixed;
+    left: 20%;
+    cursor: pointer;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 1%;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
 }

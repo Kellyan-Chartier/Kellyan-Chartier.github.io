@@ -101,7 +101,7 @@ async function playAudio(musiqueFichier, id_musique, id) {
 
                 const [glowR, glowG, glowB] = await couleurGlow({ r, g, b }, [40, 40, 40]);
 
-                activeBoite.style.boxShadow = `0 0 50px 20px rgba(${glowR}, ${glowG}, ${glowB}, 1), 0 0 80px 30px rgba(${glowR}, ${glowG}, ${glowB}, 0.6)`;
+                activeBoite.style.boxShadow = `0 0 10px 10px rgba(${glowR}, ${glowG}, ${glowB}, 1), 0 0 80px 30px rgba(${glowR}, ${glowG}, ${glowB}, 0.6)`;
                 activeBoite.style.transform = "scale(1.05)"; // Agrandir la boîte active
                 activeBoite.style.zIndex = '9999'; // Assurez-vous que le glow est visible au-dessus des autres boîtes
             }
@@ -355,7 +355,6 @@ async function boite_catalogue() {
 
     const itemsArray = Object.entries(catalogue.catalogue);  // Utilisation de Object.entries pour récupérer l'ID et l'item
     await shuffleArray(itemsArray);
-
     let id_musique = 0;
     for (const [id, item] of itemsArray) {  // Utilisation de destructuration pour obtenir l'ID et l'item
         
@@ -389,7 +388,6 @@ async function boite_catalogue() {
             </div>
         </div>
         `;
-        
         id_musique++;
     }
 
@@ -446,7 +444,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-
-
 
