@@ -79,7 +79,12 @@ body, html {
 
 
 
+#couleurlien{
 
+    color:#ff9fff;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
 
 /* Centrer la barre de recherche en utilisant une combinaison de flexbox */
 
@@ -272,6 +277,7 @@ body, html {
 
 
 .petite-boite {
+    will-change: transform, box-shadow;
     position: relative;  /* ou 'static' */
     border-radius: 10px;
     max-width: 250px;            /* Limite la largeur pour éviter l'étirement */
@@ -386,6 +392,14 @@ body, html {
     margin: 0 auto; /* Centre l'image horizontalement */
     display: block; /* Force un conteneur de bloc */
 }
+
+#box-right a {
+    display: block; /* Nécessaire si ce n'est pas un texte sur une seule ligne */
+    text-align: center; /* Centre le contenu textuel */
+    margin: 0 auto; /* Si utilisé avec une largeur */
+    width: fit-content; /* Ajuste la largeur au contenu */
+}
+
 
 
 
@@ -717,4 +731,12 @@ body, html {
 .volume-control {
     display: flex;
     align-items: center;
+}
+
+
+#catalogue_recommande, #catalogue_favoris {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch; /* Pour le scrolling fluide sur iOS */
 }

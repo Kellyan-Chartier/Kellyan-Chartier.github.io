@@ -15,6 +15,7 @@ function infosgiver(item) {
         catalogueContainer.innerHTML += `
             <h3>${content.titre}</h3>
             <p><em>${content.texte}</em></p>
+            <a href=${content.href}, id="couleurlien">${content.href}</a>
             <img src="${content.image}" style="max-height: 450px; object-fit: contain; margin-bottom: 10px;"/>
         `;
     }

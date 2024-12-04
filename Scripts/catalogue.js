@@ -2,6 +2,10 @@ import("./infos.js")
 
 // catalogue.js
 
+function toggleBox() {
+    const box = document.getElementById('box-right'); //test
+    box.classList.toggle('visible'); // Basculer la classe "visible"
+}
 
 async function chargement_catalogue() { 
     try {
@@ -26,6 +30,7 @@ let liste_id_musiques = [];
 let musiqueActuel = null;
 let isPaused = false;
 let chemin_musique_actuel = false;
+let tuto = false
 
 function miseAJourBoiteOrdre(id_musique, ordre) {
     const catalogueContainer = document.getElementById("catalogue_recommande");
@@ -37,6 +42,10 @@ function miseAJourBoiteOrdre(id_musique, ordre) {
 
     if (button) {
         if (ordre == "pause") {
+            if (tuto == false) {
+                toggleBox()
+                tuto = true
+            } 
             button.innerHTML = "⏸"; // Mettre le bouton en pause
         } else if (ordre == "lecture") {
             button.innerHTML = "▶"; // Mettre le bouton en lecture
@@ -297,42 +306,57 @@ function initDefilement() {
     
     containers.forEach(containerId => {
         const catalogueContainer = document.getElementById(containerId);
-        
+
         let isDragging = false;
         let startX;
         let scrollLeft;
 
-        // Ajouter un événement pour "mousedown" (quand l'utilisateur commence à cliquer)
-        catalogueContainer.addEventListener('mousedown', (e) => {
+        // Variable pour améliorer la fluidité avec requestAnimationFrame
+        let isScrolling = false;
+
+        // Fonction pour gérer le déplacement
+        function handleMouseMove(e) {
+            let isScrolling = false;
+
+            catalogueContainer.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                if (!isScrolling) {
+                    window.requestAnimationFrame(() => {
+                        const x = e.pageX - catalogueContainer.offsetLeft;
+                        const walk = (x - startX) * 1.8;
+                        catalogueContainer.scrollLeft = scrollLeft - walk;
+                        isScrolling = false;
+                    });
+                }
+                isScrolling = true;
+            });
+
+        }
+
+        // Ajouter les événements pour gérer le drag-and-scroll
+        catalogueContainer.addEventListener("mousedown", (e) => {
             isDragging = true;
-            startX = e.pageX - catalogueContainer.offsetLeft;  // Position de la souris lors du clic
-            scrollLeft = catalogueContainer.scrollLeft;        // Position de défilement actuelle
-            catalogueContainer.style.cursor = 'grabbing';      // Changer le curseur
+            startX = e.pageX - catalogueContainer.offsetLeft;
+            scrollLeft = catalogueContainer.scrollLeft;
+            catalogueContainer.style.cursor = "grabbing"; // Indique que l'utilisateur peut faire glisser
         });
 
-        // Ajouter un événement pour "mousemove" (quand la souris bouge)
-        catalogueContainer.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;  // Si l'utilisateur ne clique pas, on ne fait rien
-            e.preventDefault();  // Empêcher le comportement par défaut (sélection de texte, etc.)
+        catalogueContainer.addEventListener("mousemove", handleMouseMove);
 
-            const x = e.pageX - catalogueContainer.offsetLeft;  // Nouvelle position de la souris
-            const walk = (x - startX) * 1.80;  // La vitesse de défilement est multipliée par 1.80
-            catalogueContainer.scrollLeft = scrollLeft - walk;  // Appliquer le défilement
-        });
-
-        // Ajouter un événement pour "mouseup" (quand l'utilisateur relâche la souris)
-        catalogueContainer.addEventListener('mouseup', () => {
+        // Quand l'utilisateur relâche la souris
+        catalogueContainer.addEventListener("mouseup", () => {
             isDragging = false;
-            catalogueContainer.style.cursor = 'grab';  // Rétablir le curseur normal
+            catalogueContainer.style.cursor = "grab";
         });
 
-        // Ajouter un événement pour "mouseleave" (si la souris quitte la zone tout en cliquant)
-        catalogueContainer.addEventListener('mouseleave', () => {
+        // Si la souris sort du conteneur, arrête le drag
+        catalogueContainer.addEventListener("mouseleave", () => {
             isDragging = false;
-            catalogueContainer.style.cursor = 'grab';  // Rétablir le curseur normal
+            catalogueContainer.style.cursor = "grab";
         });
     });
 }
+
 
 // Initialiser le défilement pour les deux catalogues dès que la page est prête
 document.addEventListener('DOMContentLoaded', () => {

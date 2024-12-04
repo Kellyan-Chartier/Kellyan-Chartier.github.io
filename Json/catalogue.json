@@ -4,14 +4,15 @@
         "id1":{
             "texte":"Design Albums",
             "Images":"../Images/DESIGN_ALBUM.png",
-            "href":"https://pornhub.com",
             "info": {
-                "titre": "La création de couvertures d`albums de musiques.",
-                "href": "https://google.com",
-                "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
-                "image": "../Images/DESIGN_ALBUM.png"
+                "content_1" : {
+                    "titre": "La création de couvertures d`albums de musiques.",
+                    "href": "",
+                    "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
+                    "image": "../Images/DESIGN_ALBUM.png"
+                }  
             },
-            "musique":"../musiques/Our Last Summer.mp3",
+            "musique":"../musiques/NGU.mp3",
             "color":{
                 "r" : 100,
                 "g" : 100,
@@ -21,23 +22,40 @@
         "id2":{
             "texte":"GT Cards",
             "Images":"../Images/GT_CARDS.png",
-            "href":"https://pornhub.com",
             "info": {
                 "content_1" : {
-                    "titre": "La création de couvertures d`albums de musiques.",
-                    "href": "https://google.com",
-                    "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
+                    "titre": "Quand viennent les idées, surviennent les actes !",
+                    "href": "",
+                    "texte": "Après avoir organisé le GT, (voir cover `Le GT`) Nous avons eu l`idée, avec mes amis, de créer des cartes virtuelles à collectionner mettant en scène les participants de l`évènement, et les jeux vidéos qui ont étés joués.",
                     "image": "../Images/GT_CARDS.png"
                 },
                 "content_2" : {
-                    "titre": "La création de couvertures d`albums de musiques.",
-                    "href": "https://google.com",
-                    "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
-                    "image": "../Images/GT_CARDS.png"
+                    "titre": "Beaucoup d`efforts ! joli résultats.",
+                    "href": "",
+                    "texte": "Nous avons énormément bossé à la conception de ces cartes à collectionner. Un format de haute qualité pour pouvoir admirer les designs de plus près, dessiner les participants sous forme de personnages, et assembler les designs.",
+                    "image": "../Images/GTCpack/Visuel_Cartes_GT_1.png"
+                },
+                "content_3" : {
+                    "titre": "Beaucoup. De. Cartes.",
+                    "href": "",
+                    "texte": "Les participants du GT pouvaient demander un `Booster` (dossier pdf) avec des cartes aléatoires. Il y avait toujours une carte rare en fin de booster ! Le suspens était fou et les gens adoraient demander leur booster tous les matins.",
+                    "image": "../Images/GTCpack/Visuel_Cartes_GT_2.png"
+                },
+                "content_4" : {
+                    "titre": "",
+                    "href": "",
+                    "texte": "",
+                    "image": "../Images/GTCpack/Visuel_Cartes_GT_3.png"
+                },
+                "content_5" : {
+                    "titre": "",
+                    "href": "",
+                    "texte": "",
+                    "image": "../Images/GTCpack/Visuel_Cartes_GT_4.png"
                 }
                 
             },
-            "musique":"../musiques/Map (Night) - Tomodachi Life OST.mp3",
+            "musique":"../musiques/LOFIPOP.mp3",
             "color": {
                 "r" : 255,
                 "g" : 105,
@@ -47,25 +65,27 @@
         "id3":{
             "texte":"Le GT",
             "Images":"../Images/LE_GT.png",
-            "href":"https://pornhub.com",
             "info": {
                 "content_1" : {
-                    "titre" : "connard",
-                    "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
-                    "image": "../Images/GT_CARDS.png"
+                    "titre" : "L`envie de faire dans l`évènementiel.",
+                    "href": "",
+                    "texte": "J`ai organisé, structuré, géré, et monté un évènement virtuel de divertissement de jeu vidéo. Evidemment, étant donné que j`étais au lycée à ce moment là, logistiquement parlant, cela aurait été compliqué de faire du présentiel (même si j`aurais ADORÉ). Un grand groupes d`amis et de connaissances, jouant tous ensemble à diverses jeux. L`objectif est simple : plus les participants jouent, plus le montant d`heures joués en commun augmente, plus les participants doivent faire de gages ! un concept fun qui a été largement apprécié. Beaucoup de bons souvenirs et une très bonne expérience. Deux éditions du GT ont étés organisés à ce jour.",
+                    "image": "../Images/PRINCIPALE.png"
                 },
                 "content_2" : {
-                    "titre" : "test2",
-                    "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
-                    "image": "../Images/DESIGN_ALBUM.png"
+                    "titre" : "",
+                    "href": "",
+                    "texte": "",
+                    "image": "../Images/affiche principale.png"
                 },
                 "content_3" : {
-                    "titre" : "test3",
-                    "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
-                    "image": "../Images/GT_CARDS.png"
+                    "titre" : "",
+                    "href": "",
+                    "texte": "",
+                    "image": "../Images/Avant.png"
                 }
             },
-            "musique":"../musiques/Our Last Summer.mp3",
+            "musique":"../musiques/GW.mp3",
             "color": {
                 "r" : 20,
                 "g" : 20,
@@ -75,14 +95,15 @@
         "id4":{
             "texte":"Montage : La Caja",
             "Images":"../Images/MONTAGE_CAJA.png",
-            "href":"https://pornhub.com",
             "info": {
+                "content_1" : {
                 "titre": "Le montage du court métrage scolaire, La Caja de Los suenos.",
-                "href": "https://google.com",
-                "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
+                "href": "https://youtu.be/qfi4VbhgUHU?si=NJ5ebK7CYg3O9XPq",
+                "texte": "Pour un projet scolaire, il nous fallait faire une tâche orale en espagnole. Nous avions décidé d`amener le projet plus loin et de faire un `Court métrage` en espagnol. Je me suis occupé du montage, du cadrage et de la création des miniatures. (vidéo du court métrage en lien cliquable ci-dessous.)",
                 "image": "../Images/MONTAGE_CAJA.png"
+                }
             },
-            "musique":"",
+            "musique":"../musiques/Dream - Nyallek.wav",
             "color": {
                 "r" : 150,
                 "g" : 100,
@@ -92,14 +113,16 @@
         "id5":{
             "texte":"Montage : TPLV",
             "Images":"../Images/MONTAGE_TPLV.png",
-            "href":"https://pornhub.com",
             "info": {
+                "content_1" : {
                 "titre": "Le montage d`un vlog entre amis, Tout Pour Le Vlog.",
-                "href": "https://google.com",
-                "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
+                "href": "https://youtu.be/jswn9BfvboU?si=o84ndd941YdnlJi-",
+                "texte": "Montage privé entre amis, sur nos vacances d`étés. Je me suis chargé une nouvelle fois du montage, et j`en ai profité pour composer des musiques à incruster le long de la vidéo. (Attention : Contenu très peu professionnel.)",
                 "image": "../Images/MONTAGE_TPLV.png"
+                }
+                
             },
-            "musique":"",
+            "musique":"../musiques/LF.wav",
             "color": {
                 "r" : 50,
                 "g" : 100,
@@ -107,16 +130,17 @@
             }
         },
         "id6":{
-            "texte":"Musique ?",
+            "texte":"Mes débuts dans la musique.",
             "Images":"../Images/MUSIQUE.png",
-            "href":"https://pornhub.com",
             "info": {
-                "titre": "L'histoire de la musique dans ma vie.",
-                "href": "https://google.com",
-                "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
+                "content_1" : {
+                "titre": "L`histoire de la musique dans ma vie.",
+                "href": "https://www.youtube.com/@Nyallek",
+                "texte": "Pendant le confinement, j`avais décidé d`apprendre à composer de la musique sur ordinateur. J`ai, depuis le début de cette aventure, posté mes musiques sur ma chaîne Youtube. Je peux composer tout genres de musiques, allant de la musique trap/hip hop à l`orchestrale.",
                 "image": "../Images/MUSIQUE.png"
+                }
             },
-            "musique":"",
+            "musique":"../musiques/prim.wav",
             "color": {
                 "r" : 80,
                 "g" : 10,
@@ -126,14 +150,15 @@
         "id7":{
             "texte":"Premières Approches",
             "Images":"../Images/SCRATCH.png",
-            "href":"https://pornhub.com",
             "info": {
+                "content_1" : {
                 "titre": "Le commencement de l`informatique.",
-                "href": "https://google.com",
-                "texte": "Pour illustrer mes musiques pour pouvoir les distribuer sur les plateformes de streaming, j`avais deux choix : payer quelqu`un de talentueux pour le faire, ou le faire moi même. j`ai choisi la deuxième option. L`ensemble des designs que vous voyez sur cette page web, ainsi que tous les logos et albums de musiques ont étés fait par mes propres soins, sur le pire moyen de créations de designs, CANVA. (oui oui, ce site internet là)",
+                "href": "https://scratch.mit.edu/users/KEKEKING111/",
+                "texte": "Le début de mon grand intérêt pour l`informatique, et plus précisemment la programmation, commence en classe de technologie, scratch. J`ai créé pleins de jeux et d`interfaces sur le site, accessible via le lien ci-dessous.",
                 "image": "../Images/SCRATCH.png"
+                }
             },
-            "musique":"",
+            "musique":"../musiques/per.mp3",
             "color": {
                 "r" : 220,
                 "g" : 100,
@@ -141,58 +166,51 @@
             }
         },
         "id8":{
-            "texte":"Playlist 🥵",
-            "Images":"../Images/DESIGN_ALBUM.png",
-            "href":"https://pornhub.com",
-            "musique":"",
+            "texte":"Projet : Taskero",
+            "Images":"../Images/TASKERO_LOGO_HEROIC.png",
+            "info": {
+                "content1" :{
+                "titre": "Un des nombreux projets en stock.",
+                "href": "",
+                "texte": "Il s`agit d`un des projets que j`ai particulièrement hâte de faire. Un site de gestion des tâches intéractif, graphiquement soigné et permettant aux gens de gérer réellement efficacement leur quotidien. J`ai déjà mis en place les mécanismes d`influences sur les utilisateurs pour devenir rigoureux dans leur démarche de leur amélioration de leur gestion du temps/de leur liste de choses à faire.",
+                "image": "../Images/TASKERO_LOGO_HEROIC.png"
+                }
+            },
+            "musique":"../musiques/DISCORD NOTIFICATION SOUND REMIX - Nyallek Remix.mp3",
             "color": {
-                "r" : 10,
-                "g" : 2,
-                "b" : 250
+                "r" : 200,
+                "g" : 50,
+                "b" : 50
             }
         },
         "id9":{
-            "texte":"Playlist 🥵",
-            "Images":"../Images/DESIGN_ALBUM.png",
-            "href":"https://pornhub.com",
-            "musique":"",
+            "texte":"Pour me contacter",
+            "Images":"../Images/inf.png",
+            "info": {
+                "content1" :{
+                "titre": "Mes Contacts !",
+                "href": "",
+                "texte": "mail | kellyanchartier33@gmail.com",
+                "image": ""
+                },
+                "content2" :{
+                "titre": "",
+                "href": "",
+                "texte": "numéro de tel. | 06 31 17 61 53",
+                "image": ""
+                },
+                "content3" :{
+                "titre": "",
+                "href": "https://www.linkedin.com/in/kellyan-chartier-b1352b227/",
+                "texte": "(Lien de profil Linkedin ci-dessous)",
+                "image": ""
+                }
+            },
+            "musique":"../musiques/DISCORD NOTIFICATION SOUND REMIX - Nyallek Remix.mp3",
             "color": {
-                "r" : 10,
-                "g" : 25,
-                "b" : 250
-            }
-        },
-        "id10":{
-            "texte":"Milan Focken",
-            "Images":"../Images/DESIGN_ALBUM.png",
-            "href":"https://pornhub.com",
-            "musique":"",
-            "color": {
-                "r" : 162,
-                "g" : 12,
-                "b" : 119
-            }
-        },
-        "id11":{
-            "texte":"Playlist 🥵",
-            "Images":"../Images/DESIGN_ALBUM.png",
-            "href":"https://pornhub.com",
-            "musique":"",
-            "color": {
-                "r" : 10,
-                "g" : 25,
-                "b" : 250
-            }
-        },
-        "id12":{
-            "texte":"Playlist 🥵",
-            "Images":"../Images/DESIGN_ALBUM.png",
-            "href":"https://pornhub.com",
-            "musique":"",
-            "color": {
-                "r" : 10,
-                "g" : 25,
-                "b" : 2
+                "r" : 200,
+                "g" : 50,
+                "b" : 50
             }
         }
     }
